@@ -113,6 +113,18 @@
     transition: transform 0.2s, opacity 0.2s;
   }
   .nav-cta:hover { transform: translateY(-1px); opacity: 0.9; }
+  .nav-right {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--text-primary); }
 
   /* ---- HERO ---- */
   .hero {
@@ -507,7 +519,10 @@
 <nav>
   <div class="inner">
     <div class="logo">AI for Dummies</div>
-    <a href="#contact" class="nav-cta">關於我們</a>
+    <div class="nav-right">
+      <a href="services/" class="nav-link">服務與收費</a>
+      <a href="#contact" class="nav-cta">關於我們</a>
+    </div>
   </div>
 </nav>
 
@@ -755,6 +770,10 @@
       <div class="about-contact fade-up">
         想聊聊？寫信給我們 →
         <a href="#" class="email-link" data-u="roamingcat" data-d="gmail.com" onclick="this.href='mailto:'+this.dataset.u+'@'+this.dataset.d;"></a>
+      </div>
+      <div class="about-contact fade-up" style="margin-top: var(--space-sm);">
+        想看服務檔次與收費？
+        <a href="services/" class="email-link">看服務方案 →</a>
       </div>
     </div>
   </div>

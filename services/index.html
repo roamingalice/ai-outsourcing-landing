@@ -809,20 +809,10 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 20px;
     border: 3px solid var(--line);
-    overflow: hidden;
-    position: relative;
-    background: var(--bg);
-  }
-  .team-photo img {
-    position: absolute;
-    left: 50%;
-    width: 200px;
-    height: auto;
     display: block;
-    transform: translateX(-50%);
-    top: var(--img-offset-y, 0);
   }
   .team-name {
     font-size: 22px;
@@ -1240,9 +1230,7 @@
     <div class="team-grid">
 
       <div class="team-card">
-        <div class="team-photo" style="--img-offset-y: -30px;">
-          <img src="https://i.ibb.co/4ZQ8HqBz/Alice.jpg" alt="蔡舜玉 Alice" loading="lazy" />
-        </div>
+        <img src="https://i.ibb.co/4ZQ8HqBz/Alice.jpg" alt="蔡舜玉 Alice" class="team-photo" loading="lazy" />
         <div class="team-name">蔡舜玉<span class="team-name-en">Alice</span></div>
         <div class="team-role">AI 商業流程架構師 · 誠玉股份有限公司執行長</div>
         <p class="team-bio">
@@ -1257,9 +1245,7 @@
       </div>
 
       <div class="team-card">
-        <div class="team-photo" style="--img-offset-y: 0;">
-          <img src="https://i.ibb.co/xcW1HBf/Frank-1.jpg" alt="楊凱宇 Frank" loading="lazy" />
-        </div>
+        <img src="frank.jpg" alt="楊凱宇 Frank" class="team-photo" loading="lazy" />
         <div class="team-name">楊凱宇<span class="team-name-en">Frank</span></div>
         <div class="team-role">技術實作 · 系統架構</div>
         <p class="team-bio">

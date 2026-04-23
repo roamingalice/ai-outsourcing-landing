@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 商業流程落地 — 蔡舜玉 × Frank</title>
+<title>AI 商業流程落地 — Alice × Frank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,11 @@
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    transition: opacity 0.2s;
   }
+  .nav__brand:hover { opacity: 0.7; }
   .nav__brand span {
     color: var(--ink-light);
     font-weight: 400;
@@ -785,6 +789,60 @@
     line-height: 1.7;
   }
 
+  /* ───── Team / About ───── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  @media (max-width: 760px) {
+    .team-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+  .team-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 28px;
+  }
+  .team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--line);
+    display: block;
+  }
+  .team-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .team-name-en {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-light);
+    margin-left: 8px;
+    letter-spacing: 0.02em;
+  }
+  .team-role {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+  }
+  .team-bio {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0;
+  }
+  .team-bio + .team-bio { margin-top: 10px; }
+
   /* ───── Footer ───── */
   .foot {
     padding: 48px 0;
@@ -809,13 +867,13 @@
   }
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- NAV -->
 <nav class="nav">
   <div class="container nav__inner">
-    <div class="nav__brand">蔡舜玉 <span>×</span> 楊凱宇</div>
-    <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="nav__cta">開始 15 分鐘診斷</a>
+    <a href="#top" class="nav__brand">Alice <span>×</span> Frank</a>
+    <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="nav__cta">開始 3 分鐘診斷</a>
   </div>
 </nav>
 
@@ -858,25 +916,10 @@
 <section class="section section--alt" id="tiers">
   <div class="container">
     <div class="section__eyebrow">三個服務階段</div>
-    <h2 class="section__title">沿著「問題在哪個階段」切檔，<br>不沿著客戶人數切。</h2>
+    <h2 class="section__title">沿著「問題在哪個階段」切檔，<br>不是直接賣你套組硬套在你身上。</h2>
     <p class="section__sub">
-      你在哪一階段，就從哪一檔進。5 人電商跟 50 人公司都可以從診斷型開始，再決定要不要往下。
+      找出你的痛點與階段，給你需要的解方。
     </p>
-
-    <!-- Entry -->
-    <div class="entry" id="entry">
-      <div>
-        <div class="entry__label">入口 · 零門檻</div>
-        <div class="entry__title">15 分鐘免費釐清</div>
-        <div class="entry__sub">
-          我們用 15 分鐘判斷你這題值不值得做、該從哪一檔進、或是應該找別人。不適合的案子我們會直接說，不硬接。
-        </div>
-      </div>
-      <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="entry__btn">
-        開始診斷
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
 
     <!-- Tiers -->
     <div class="tier-grid">
@@ -1095,6 +1138,25 @@
   </div>
 </section>
 
+<!-- ENTRY CTA (moved from top of tiers section) -->
+<section class="section">
+  <div class="container">
+    <div class="entry" id="entry">
+      <div>
+        <div class="entry__label">入口 · 零門檻</div>
+        <div class="entry__title">3 分鐘免費釐清</div>
+        <div class="entry__sub">
+          我們用 3 分鐘判斷我們的服務是否能幫到您或是應該找別人。根據您的痛點給您最適合的人選與解決方案。
+        </div>
+      </div>
+      <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="entry__btn">
+        開始診斷
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- BNI REFERRAL -->
 <section class="section">
   <div class="container">
@@ -1156,10 +1218,49 @@
   </div>
 </section>
 
+<!-- TEAM / ABOUT US -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section__eyebrow">關於我們</div>
+    <h2 class="section__title">兩個人一組——<br>一個翻譯商業，一個蓋出東西。</h2>
+    <p class="section__sub">
+      客戶永遠只認一個對口，但背後是一組經歷互補的搭擋，中間零 handoff 損耗。
+    </p>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <img src="https://i.ibb.co/4ZQ8HqBz/Alice.jpg" alt="蔡舜玉 Alice" class="team-photo" loading="lazy" />
+        <div class="team-name">蔡舜玉<span class="team-name-en">Alice</span></div>
+        <div class="team-role">AI 商業流程架構師 · 誠玉股份有限公司執行長</div>
+        <p class="team-bio">
+          ASify 瑜伽服飾創辦人，BNI 華榮分會第 12 屆主席，台大社會學學士、紐約大學英語教學碩士。
+        </p>
+        <p class="team-bio">
+          13 年電商口碑行銷、社群經營實戰，經營 450+ 位瑜伽大使生態圈。現在把 AI 嵌進自己公司的每一個流程，也幫別的企業做同樣的事。
+        </p>
+      </div>
+
+      <div class="team-card">
+        <img src="https://i.ibb.co/xcW1HBf/Frank-1.jpg" alt="楊凱宇 Frank" class="team-photo" loading="lazy" />
+        <div class="team-name">楊凱宇<span class="team-name-en">Frank</span></div>
+        <div class="team-role">技術實作 · 系統架構</div>
+        <p class="team-bio">
+          Open Claw 核心開發成員。前卡提諾營運長、前日商 iMobile 台灣區總經理。NBA 球星 Jimmy Butler 創立的潮牌 Big Face 幕後操刀者。
+        </p>
+        <p class="team-bio">
+          多產業 AI 實戰：進出口貿易 SKU 智慧推薦、五金傳產網站 AI 翻新、海外品牌 AI SEO、LINE Bot 與 LIFF 自動化——規格給他就 ship。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="foot">
   <div class="container foot__inner">
-    <div class="foot__brand">蔡舜玉 <span>×</span> 楊凱宇</div>
+    <div class="foot__brand">Alice <span>×</span> Frank</div>
     <div class="foot__meta">誠玉股份有限公司 · AI 商業流程落地 · 2026</div>
   </div>
 </footer>

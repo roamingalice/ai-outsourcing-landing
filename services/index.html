@@ -789,6 +789,54 @@
     line-height: 1.7;
   }
 
+  /* ───── Transform list (BNI section quick-hits) ───── */
+  .transform-list {
+    margin: 0 0 48px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 780px;
+  }
+  .transform-list li {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 20px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  @media (max-width: 640px) {
+    .transform-list li {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      text-align: left;
+    }
+    .transform-list__arrow { display: none; }
+  }
+  .transform-list__from {
+    color: var(--ink-muted);
+    text-align: right;
+    font-weight: 500;
+  }
+  .transform-list__arrow {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .transform-list__to {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  @media (max-width: 640px) {
+    .transform-list__from { text-align: left; }
+    .transform-list__from::after { content: " →"; color: var(--accent); }
+  }
+
   /* ───── Team / About ───── */
   .team-grid {
     display: grid;
@@ -881,9 +929,9 @@
 <section class="hero">
   <div class="container">
     <div class="hero__eyebrow">AI 商業流程落地</div>
-    <h1 class="hero__title">把 <em>AI</em> 嵌進<br>公司的日常流程。</h1>
+    <h1 class="hero__title">把你的團隊，<br>升級成 <em>AI 自動運轉</em>模式。</h1>
     <p class="hero__sub">
-      不是再買一個工具，也不是做一場教育訓練。我們替你找出<strong style="color:var(--ink)">哪個環節值得自動化</strong>、設計規格、做出來、陪你跑順。
+      我們把原本要 <strong style="color:var(--ink)">3–5 個人</strong>在跑的客服、行銷、訂單、資料整合工作，變成一套自己會運轉的 AI 系統。團隊省下來的時間拿去做真正需要判斷的事，產能通常升到 <strong style="color:var(--ink)">2–3 倍</strong>。
     </p>
     <div class="hero__people">
       <div class="hero__person">
@@ -1030,7 +1078,7 @@
     <div class="section__eyebrow">實戰案例</div>
     <h2 class="section__title">從電商到傳產，<br>從自動化到營收倍增。</h2>
     <p class="section__sub">
-      以下是我們實際交付給外部客戶的案例（為保護客戶隱私，以產業類型代稱）。同時我們也在 ASify 自家公司每天跑多套類似系統——退換貨 bot、多平台發文、母親節 LIFF——外部客戶加上自家 production，雙重佐證。
+      以下是我們實際交付給外部客戶的案例（為保護客戶隱私，以產業類型代稱）。我們自己 ASify 也每天跑多套類似系統——退換貨 bot、多平台發文、母親節 LIFF——自己公司做得順，客戶的案子才敢接。
     </p>
 
     <div class="cases-grid">
@@ -1097,7 +1145,7 @@
         <div class="diff__num">01</div>
         <h3 class="diff__title">商業翻譯 × 技術實作，<br>同一組人。</h3>
         <p class="diff__text">
-          一般 IT 外包會蓋、不懂商業；一般顧問會講、沒人 ship。Alice 翻譯商業語言，Frank 直接蓋出來——中間零 handoff、零卡關、零「等對方回 email」。
+          一般 IT 外包會蓋、不懂商業；一般顧問會講、沒人真的做。Alice 翻譯商業語言，Frank 直接做出來——中間不用你在兩邊轉譯、不用你等對方回 email、不用你擔心規格走樣。
         </p>
       </div>
 
@@ -1105,7 +1153,7 @@
         <div class="diff__num">02</div>
         <h3 class="diff__title">我們自己，就是自己的<br>第一個客戶。</h3>
         <p class="diff__text">
-          每套方法論都在 ASify 自家公司跑過 production。你導入的不是 POC demo，是我們每天依靠的系統——壓測都是真實流量打出來的。
+          每套做法都在我們自己 ASify 跑過真實訂單、真實客人、真實客服量。你拿到的不是試驗品、不是 demo——是我們每天公司依靠的系統。
         </p>
       </div>
 
@@ -1113,7 +1161,7 @@
         <div class="diff__num">03</div>
         <h3 class="diff__title">不賣培訓、不代辦補助、<br>不做策略。</h3>
         <p class="diff__text">
-          我們只做「把 AI 嵌進流程」這一件事。Scope 越窄，深度越夠——這也是我們敢在評估階段就直說「這題不適合做」的底氣。
+          我們只做「把 AI 嵌進公司流程」這一件事。做得越專一，做得越深——這也是我們敢在第一次諮詢就直接說「這題不適合做」、不硬接的底氣。
         </p>
       </div>
 
@@ -1163,8 +1211,14 @@
     <div class="section__eyebrow">給引薦夥伴的口袋話術</div>
     <h2 class="section__title">聽到這三種話，<br>你可以直接幫忙對方解決煩惱。</h2>
     <p class="section__sub">
-      我們知道好的引薦需要一句就能講清楚的 mental hook。這三句是直接可以用的版本。
+      不用學 AI、不用重建系統——我們直接把老闆日常在煩的流程自動化，產能升到 2–3 倍。
     </p>
+
+    <ul class="transform-list">
+      <li><span class="transform-list__from">客服、行銷、內容</span><span class="transform-list__arrow">→</span><span class="transform-list__to">AI 自動產出</span></li>
+      <li><span class="transform-list__from">散在各處的雜亂資料</span><span class="transform-list__arrow">→</span><span class="transform-list__to">整合成可決策的儀表板</span></li>
+      <li><span class="transform-list__from">員工手動重複在做的事</span><span class="transform-list__arrow">→</span><span class="transform-list__to">變成 AI 自動跑的流程</span></li>
+    </ul>
 
     <div class="bni-grid">
       <div class="quote">
@@ -1224,7 +1278,7 @@
     <div class="section__eyebrow">關於我們</div>
     <h2 class="section__title">兩個人一組——<br>一個翻譯商業，一個蓋出東西。</h2>
     <p class="section__sub">
-      客戶永遠只認一個對口，但背後是一組經歷互補的搭擋，中間零 handoff 損耗。
+      客戶永遠只認一個對口，背後是一組經歷互補的搭擋——你不用煩惱在兩個人之間傳話。
     </p>
 
     <div class="team-grid">
@@ -1252,7 +1306,7 @@
           Open Claw 核心開發成員。前卡提諾營運長、前日商 iMobile 台灣區總經理。NBA 球星 Jimmy Butler 創立的潮牌 Big Face 幕後操刀者。
         </p>
         <p class="team-bio">
-          多產業 AI 實戰：進出口貿易 SKU 智慧推薦、五金傳產網站 AI 翻新、海外品牌 AI SEO、LINE Bot 與 LIFF 自動化——規格給他就 ship。
+          多產業 AI 實戰：進出口貿易 SKU 智慧推薦、五金傳產網站 AI 翻新、海外品牌 AI 曝光突破、LINE Bot 與 LIFF 活動自動化——規格給他就動手做。
         </p>
       </div>
 

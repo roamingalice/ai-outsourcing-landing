@@ -200,7 +200,29 @@
     font-size: 14px;
     color: #1a2028;
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 10px;
+  }
+  .meta-body:last-child {
+    margin-bottom: 0;
+  }
+  .meta-list {
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #1a2028;
+  }
+  .meta-list li {
+    padding-left: 20px;
+    position: relative;
+  }
+  .meta-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #b96a2f;
+    font-weight: 700;
   }
 
   /* ====== CTA blocks ====== */
@@ -350,9 +372,19 @@
     <!-- ========== Meta（怎麼做的） ========== -->
     <div class="section">
       <div class="meta-block">
-        <div class="meta-label">🤖 順帶一提：這封信是怎麼做出來的</div>
-        <p class="meta-title">本週：插圖全由 AI 生成</p>
-        <p class="meta-body">這三篇漫畫的每一張圖都不是美編畫的，是用 AI 根據故事腳本跑出來的。我們在 Telegram 群裡收集真實老闆/員工的 AI 應用經驗，再由 AI 整理成漫畫跟短故事。<strong>這封週報本身，也是這套流程的一部分</strong>。</p>
+        <div class="meta-label">🤖 順帶一提</div>
+        <p class="meta-title">這封信從頭到尾都是 AI 做的</p>
+        <p class="meta-body">從老闆們在 Telegram 群組聊天，到這封信出現在你信箱——中間每一步都是 AI agent 做的：</p>
+        <ul class="meta-list">
+          <li>搜集群組裡的真實故事</li>
+          <li>寫成漫畫腳本跟短文</li>
+          <li>下吸睛的標題</li>
+          <li>畫漫畫</li>
+          <li>發佈到部落格</li>
+          <li>每週挑 3 篇組成這封信</li>
+          <li>寄進你的信箱</li>
+        </ul>
+        <p class="meta-body"><strong>老闆們只要聊天，不用改任何流程、不用學新工具</strong>。這封信本身，就是我們帶出去幫企業做的事情的 demo。</p>
       </div>
     </div>
 

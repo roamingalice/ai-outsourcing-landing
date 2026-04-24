@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI for Dummies 週報 · 第 17 期（Mockup）</title>
+<style>
+  /* Email-safe CSS. In real Brevo API call, all this goes inline on elements. */
+  body {
+    margin: 0;
+    padding: 0;
+    background: #efe9de;
+    font-family: "Noto Sans TC", "PingFang TC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    color: #1a2028;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+  }
+
+  .preview-wrap {
+    padding: 40px 20px;
+    background: #efe9de;
+  }
+  .preview-label {
+    max-width: 600px;
+    margin: 0 auto 16px;
+    font-size: 12px;
+    color: #8a939f;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .email {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #faf7f2;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .eyebrow {
+    padding: 28px 32px 0;
+    font-size: 12px;
+    color: #0a5f54;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .masthead {
+    padding: 6px 32px 28px;
+    border-bottom: 1px solid #e6dfd1;
+  }
+  .masthead-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+  .masthead-meta {
+    font-size: 13px;
+    color: #5a6370;
+  }
+
+  .section {
+    padding: 32px 32px 0;
+  }
+  .section:last-of-type {
+    padding-bottom: 32px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    color: #8a939f;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+
+  /* ====== 編輯觀點區 ====== */
+  .editorial {
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    border-left: 3px solid #0a5f54;
+    margin-top: 0;
+  }
+  .editorial-heading {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: #1a2028;
+  }
+  .editorial-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #1a2028;
+    margin: 0;
+  }
+  .editorial-sign {
+    margin: 16px 0 0;
+    font-size: 13px;
+    color: #5a6370;
+    font-style: italic;
+  }
+
+  /* ====== 文章卡 ====== */
+  .articles {
+    margin-top: 12px;
+  }
+  .article-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e6dfd1;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  .article-card:hover {
+    border-color: #0a5f54;
+  }
+  .article-inner {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .article-cover {
+    display: table-cell;
+    width: 120px;
+    vertical-align: top;
+    background: #f2ede3;
+  }
+  .article-cover img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+  }
+  .article-body {
+    display: table-cell;
+    padding: 14px 18px;
+    vertical-align: middle;
+  }
+  .article-num {
+    font-size: 11px;
+    color: #b96a2f;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  .article-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 4px 0 6px;
+    color: #1a2028;
+  }
+  .article-hook {
+    font-size: 13px;
+    color: #5a6370;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  @media (max-width: 480px) {
+    .article-cover, .article-body {
+      display: block;
+      width: 100%;
+    }
+    .article-cover img {
+      width: 100%;
+      height: 180px;
+    }
+  }
+
+  /* ====== Meta 區（AI 怎麼做的） ====== */
+  .meta-block {
+    background: #f3e3d3;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+  .meta-label {
+    font-size: 11px;
+    color: #b96a2f;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .meta-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .meta-body {
+    font-size: 14px;
+    color: #1a2028;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ====== CTA blocks ====== */
+  .cta-row {
+    display: block;
+    margin-top: 8px;
+  }
+  .cta-block {
+    background: #fff;
+    border: 1px solid #e6dfd1;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+  .cta-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .cta-body {
+    font-size: 14px;
+    color: #5a6370;
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+  .cta-button {
+    display: inline-block;
+    background: #1a2028;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 11px 22px;
+    border-radius: 999px;
+  }
+  .cta-button-outline {
+    background: transparent;
+    color: #1a2028 !important;
+    border: 1.5px solid #1a2028;
+  }
+
+  /* ====== Footer ====== */
+  .footer {
+    padding: 28px 32px 32px;
+    border-top: 1px solid #e6dfd1;
+    margin-top: 20px;
+  }
+  .ps {
+    font-size: 13px;
+    color: #5a6370;
+    line-height: 1.65;
+    margin: 0 0 20px;
+  }
+  .ps strong {
+    color: #1a2028;
+  }
+  .signoff {
+    font-size: 13px;
+    color: #5a6370;
+    margin: 0 0 14px;
+  }
+  .signoff strong {
+    color: #1a2028;
+  }
+  .legal {
+    font-size: 11px;
+    color: #9aa0a9;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .legal a {
+    color: #9aa0a9;
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-wrap">
+  <div class="preview-label">Brevo EMAIL MOCKUP · 電腦跟手機都會這樣渲染</div>
+
+  <div class="email">
+
+    <!-- ========== MASTHEAD ========== -->
+    <div class="eyebrow">📮 AI for Dummies</div>
+    <div class="masthead">
+      <h1 class="masthead-title">第 17 期 · 本週三個 AI 落地故事</h1>
+      <div class="masthead-meta">2026 年 5 月 1 日 · Alice × Frank</div>
+    </div>
+
+    <!-- ========== 編輯觀點 ========== -->
+    <div class="section">
+      <div class="section-label">🎯 Alice 這週看到的</div>
+      <div class="editorial">
+        <p class="editorial-body">這週 Mia 的故事讓我想到一個很多老闆都有的狀況——「明明每個部門都在忙，但整體效率沒有提升」。<strong>問題不在人，問題在流程沒有被重新設計</strong>。AI 不是來取代人的，是來接手那些本來就不應該讓人做的重複雜務。</p>
+        <p class="editorial-sign">— Alice</p>
+      </div>
+    </div>
+
+    <!-- ========== 本週文章 ========== -->
+    <div class="section">
+      <div class="section-label">📖 本週三則真實案例</div>
+      <div class="articles">
+
+        <a href="https://ai-dummies.me/checking-hundreds-quotes-ai-catches-errors/" class="article-card">
+          <div class="article-inner">
+            <div class="article-cover">
+              <img src="https://i.ibb.co/BV1vXnWy/81ade931b2a9.jpg" alt="">
+            </div>
+            <div class="article-body">
+              <div class="article-num">01 / 本週</div>
+              <div class="article-title">一個人核對幾百條報價，累死也會漏</div>
+              <p class="article-hook">AI 幫你把重複核對變成無人流程，邏輯由你訂，執行交給它。</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ai-dummies.me/octopus-mia-python-quotes/" class="article-card">
+          <div class="article-inner">
+            <div class="article-cover">
+              <img src="https://i.ibb.co/Q3zMp958/bf4add98ea80.jpg" alt="">
+            </div>
+            <div class="article-body">
+              <div class="article-num">02 / 本週</div>
+              <div class="article-title">章魚 Mia 說她不懂 Python</div>
+              <p class="article-hook">沒有程式底，也能把自動化建起來——只要你知道自己要什麼。</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ai-dummies.me/notion-automation-without-coding/" class="article-card">
+          <div class="article-inner">
+            <div class="article-cover">
+              <img src="https://i.ibb.co/84Pqf9qD/f36710b66f0b.jpg" alt="">
+            </div>
+            <div class="article-body">
+              <div class="article-num">03 / 本週</div>
+              <div class="article-title">灰狼 Gary 的 Notion 串接實戰</div>
+              <p class="article-hook">把散在各處的資料，變成一個 AI 能回答的營運中樞。</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ========== Meta（怎麼做的） ========== -->
+    <div class="section">
+      <div class="meta-block">
+        <div class="meta-label">🤖 順帶一提：這封信是怎麼做出來的</div>
+        <p class="meta-title">本週：插圖全由 AI 生成</p>
+        <p class="meta-body">這三篇漫畫的每一張圖都不是美編畫的，是用 AI 根據故事腳本跑出來的。我們在 Telegram 群裡收集真實老闆/員工的 AI 應用經驗，再由 AI 整理成漫畫跟短故事。<strong>這封週報本身，也是這套流程的一部分</strong>。</p>
+      </div>
+    </div>
+
+    <!-- ========== CTA Block ========== -->
+    <div class="section">
+      <div class="cta-row">
+
+        <div class="cta-block">
+          <h3 class="cta-title">💬 情況變了嗎？</h3>
+          <p class="cta-body">上次跑診斷時預算還沒確定、或還要問老闆——現在你可以決定了嗎？3 分鐘重新跑一次，我們會判斷要不要進下一步。</p>
+          <a href="https://ai-consult-quiz.vercel.app/?utm_source=newsletter&utm_campaign=wk17" class="cta-button">重新跑 3 分鐘診斷</a>
+        </div>
+
+        <div class="cta-block">
+          <h3 class="cta-title">☕ 想看真實的我們？</h3>
+          <p class="cta-body">我們是 BNI 華榮的夥伴，每週三早上 7:00 在中和瓏山林飯店。想認識我們本人 + 更多跨產業的創業家，歡迎過來當來賓。</p>
+          <a href="https://bnihuarong.tw/" class="cta-button cta-button-outline">來當 BNI 來賓</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== Footer ========== -->
+    <div class="footer">
+      <p class="ps"><strong>P.S.</strong> 這封信的插圖、故事、編輯觀點的草稿全部由 AI 協同生成——Alice 只做最後的 sanity check。這就是我們每天在做的事，也是我們帶出去幫別家企業做的事。🦾</p>
+
+      <p class="signoff">—— <strong>Alice × Frank</strong><br>AI for Dummies · 把 AI 嵌進公司日常</p>
+
+      <p class="legal">
+        你收到這封信是因為填過 <a href="https://ai-consult-quiz.vercel.app/">3 分鐘診斷</a> 或主動訂閱。<br>
+        不想再收？<a href="#">退訂</a>｜<a href="https://ai-dummies.me/">查看網頁版</a>｜誠玉股份有限公司 · 台北市中山北路二段 84 巷 1 號 5F
+      </p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -789,6 +789,29 @@
     line-height: 1.7;
   }
 
+  /* ───── Punchline pull-quote ───── */
+  .punchline {
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .punchline p {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink-muted);
+    line-height: 1.35;
+    margin: 0;
+    max-width: 32ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .punchline strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
   /* ───── Transform list (BNI section quick-hits) ───── */
   .transform-list {
     margin: 0 0 48px;
@@ -929,9 +952,9 @@
 <section class="hero">
   <div class="container">
     <div class="hero__eyebrow">AI 商業流程落地</div>
-    <h1 class="hero__title">把你的團隊，<br>升級成 <em>AI 自動運轉</em>模式。</h1>
+    <h1 class="hero__title">不增加人力，<br>產能升到 <em>2–3 倍</em>。</h1>
     <p class="hero__sub">
-      我們把原本要 <strong style="color:var(--ink)">3–5 個人</strong>在跑的客服、行銷、訂單、資料整合工作，變成一套自己會運轉的 AI 系統。團隊省下來的時間拿去做真正需要判斷的事，產能通常升到 <strong style="color:var(--ink)">2–3 倍</strong>。
+      我們不是導入 AI——<strong style="color:var(--ink)">我們重新設計企業如何運作</strong>。原本要 3–5 個人在跑的客服、行銷、訂單、資料整合工作，變成一套自己會運轉的系統，團隊把時間拿回來做真正需要判斷的事。
     </p>
     <div class="hero__people">
       <div class="hero__person">
@@ -1166,6 +1189,10 @@
       </div>
 
     </div>
+
+    <div class="punchline">
+      <p>不是自動化專案——<strong>是一次營運重構。</strong></p>
+    </div>
   </div>
 </section>
 
@@ -1211,7 +1238,7 @@
     <div class="section__eyebrow">給引薦夥伴的口袋話術</div>
     <h2 class="section__title">聽到這三種話，<br>你可以直接幫忙對方解決煩惱。</h2>
     <p class="section__sub">
-      不用學 AI、不用重建系統——我們直接把老闆日常在煩的流程自動化，產能升到 2–3 倍。
+      把原本需要靠人運作的流程，重新設計成 AI 系統——結果通常是：<strong style="color:var(--ink)">少請 1–3 個人</strong>，或 <strong style="color:var(--ink)">產能翻 2–3 倍</strong>。
     </p>
 
     <ul class="transform-list">

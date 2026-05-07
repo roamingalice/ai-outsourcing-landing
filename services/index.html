@@ -936,6 +936,87 @@
     font-size: 13px;
     color: var(--ink-light);
   }
+
+
+  /* ───── Market signal / capability map ───── */
+  .market-panel {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 48px;
+    border-radius: 2px;
+    margin-top: 24px;
+  }
+  .market-panel__label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-soft);
+    margin-bottom: 14px;
+  }
+  .market-panel__title {
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .market-panel__text {
+    color: color-mix(in oklch, var(--bg) 82%, transparent);
+    max-width: 76ch;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+  .market-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .proof-item {
+    border: 1px solid color-mix(in oklch, var(--bg) 20%, transparent);
+    padding: 20px;
+    min-height: 150px;
+  }
+  .proof-item__num {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--warm-soft);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .proof-item__copy {
+    color: color-mix(in oklch, var(--bg) 84%, transparent);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .capability-map {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .capability {
+    border: 1px solid var(--line);
+    background: var(--bg-alt);
+    padding: 18px;
+    min-height: 132px;
+  }
+  .capability__name {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .capability__desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .market-proof,
+    .capability-map { grid-template-columns: 1fr; }
+    .market-panel { padding: 30px 24px; }
+  }
+
 </style>
 </head>
 <body id="top">
@@ -954,7 +1035,7 @@
     <div class="hero__eyebrow">AI 商業流程落地</div>
     <h1 class="hero__title">不增加人力，<br>產能升到 <em>2–3 倍</em>。</h1>
     <p class="hero__sub">
-      我們不是導入 AI——<strong style="color:var(--ink)">我們重新設計企業如何運作</strong>。原本要 3–5 個人在跑的客服、行銷、訂單、資料整合工作，變成一套自己會運轉的系統，團隊把時間拿回來做真正需要判斷的事。
+      我們不是導入 AI 工具——<strong style="color:var(--ink)">我們重新設計企業如何運作</strong>。把客服、行銷、訂單、資料整合、權限控管與驗證流程接成一套能運轉、能回報、能持續修正的系統，團隊把時間拿回來做真正需要判斷的事。
     </p>
     <div class="hero__people">
       <div class="hero__person">
@@ -972,6 +1053,62 @@
           <div class="hero__person-credit">Open Claw 核心開發 · 前卡提諾營運長、iMobile 台灣區總經理 · Jimmy Butler 潮牌 Big Face 操刀</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- MARKET SIGNAL -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__eyebrow">2026 產業 AI 化訊號</div>
+    <h2 class="section__title">AI 已經不是選配，<br>但多數企業還停在工具層。</h2>
+    <p class="section__sub">
+      我們根據《2026 台灣產業 AI 化大調查報告》的市場觀察：企業導入意願快速升高，但流程整合、資料治理、人才職能與資安控管仍是主要缺口。這份報告不是我們的主張來源，而是市場正在說同一件事。
+    </p>
+
+    <div class="market-panel">
+      <div class="market-panel__label">From tool adoption to workflow architecture</div>
+      <h3 class="market-panel__title">下一階段的差距，不是誰比較會用 AI，<br>而是誰能把 AI 放進常規流程。</h3>
+      <p class="market-panel__text">
+        企業現在不缺工具，缺的是一個能把商業問題拆成資料、流程、權限、AI、人工把關與驗證機制的中間層。這就是 Alice × Frank 的合作位置：Alice 翻譯商業與流程，Frank 把它做成可運作、可部署、可維護的系統。
+      </p>
+      <div class="market-proof">
+        <div class="proof-item">
+          <div class="proof-item__num">85.8%</div>
+          <div class="proof-item__copy">企業計畫在 2026 年導入或擴大 AI。問題已從「要不要用」變成「怎麼落地」。</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-item__num">6.6%</div>
+          <div class="proof-item__copy">真正完全整合進公司常規流程的比例仍低。會用工具，不代表公司完成 AI 化。</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-item__num">61.8%</div>
+          <div class="proof-item__copy">企業內部 AI 應用未納入組織管控。效率如果沒有治理，很快會變成風險。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITY MAP -->
+<section class="section">
+  <div class="container">
+    <div class="section__eyebrow">能力地圖</div>
+    <h2 class="section__title">不是只做 Bot。<br>我們做的是 AI 商業流程架構。</h2>
+    <p class="section__sub">
+      不同產業的痛點不一樣，但底層都需要把資料、流程、AI、權限與驗證接起來。以下能力可單獨做，也可組成完整流程。
+    </p>
+    <div class="capability-map">
+      <div class="capability"><div class="capability__name">客服 / 售後流程</div><div class="capability__desc">FAQ、退換貨、回訪、預約、客訴與真人 gate。</div></div>
+      <div class="capability"><div class="capability__name">內容與社群系統</div><div class="capability__desc">把客服問題、好評、案例與品牌知識變成可發布內容。</div></div>
+      <div class="capability"><div class="capability__name">KOL / 推薦合作</div><div class="capability__desc">名單、推薦碼、合作狀態、分潤與成效追蹤。</div></div>
+      <div class="capability"><div class="capability__name">智慧推薦 / 銷售輔助</div><div class="capability__desc">比對 SKU、客群、通路與業務風格，輔助成交。</div></div>
+      <div class="capability"><div class="capability__name">網站翻新 / 品牌數位化</div><div class="capability__desc">整理素材、重塑網站、讓老品牌具備現代成交入口。</div></div>
+      <div class="capability"><div class="capability__name">AI SEO / GEO</div><div class="capability__desc">讓品牌在 AI 搜尋與生成式回答中被看見。</div></div>
+      <div class="capability"><div class="capability__name">Dashboard / 決策回饋</div><div class="capability__desc">把分散資料整理成老闆、店長、投資人看得懂的訊號。</div></div>
+      <div class="capability"><div class="capability__name">權限 / 資安 / 驗證</div><div class="capability__desc">設計資料權限、人工把關、日誌與使用者端驗證。</div></div>
     </div>
   </div>
 </section>

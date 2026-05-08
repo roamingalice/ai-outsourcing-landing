@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>美業五分鐘 AI 商業流程演講簡報</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #efe8df;
+      color: #211f1f;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+    .deck {
+      width: 100%;
+      display: grid;
+      gap: 28px;
+      padding: 28px;
+    }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      overflow: hidden;
+      background: #f7f1ea;
+      padding: 74px 86px;
+      border: 1px solid #dccfbe;
+    }
+    .slide.dark {
+      background: #241f2a;
+      color: #f7f1ea;
+    }
+    .kicker {
+      color: #b9813f;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      max-width: 1040px;
+      font-size: 58px;
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+    .subtitle {
+      margin-top: 28px;
+      max-width: 940px;
+      color: #695f56;
+      font-size: 28px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+    .dark .subtitle { color: #d8cab8; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 58px;
+    }
+    .cards.five {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .card {
+      min-height: 150px;
+      background: #fff;
+      border: 1px solid #e2d6c8;
+      padding: 28px;
+    }
+    .dark .card {
+      background: #332c3b;
+      border-color: #5b4d3f;
+    }
+    .card h2 {
+      margin: 0 0 16px;
+      color: #b9813f;
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+    .cards.five .card {
+      min-height: 136px;
+      padding: 22px 18px;
+    }
+    .cards.five .card h2 { font-size: 23px; }
+    .card p {
+      margin: 0;
+      color: #2e2a28;
+      font-size: 22px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+    .cards.five .card p { font-size: 17px; }
+    .dark .card p { color: #f7f1ea; }
+    .wide-card {
+      margin-top: 54px;
+      background: #332c3b;
+      color: #f7f1ea;
+      padding: 34px 42px;
+      max-width: 1000px;
+      border-left: 8px solid #b9813f;
+    }
+    .wide-card p {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .page {
+      position: absolute;
+      right: 74px;
+      bottom: 48px;
+      color: #a3998e;
+      font-size: 16px;
+      letter-spacing: .12em;
+    }
+    .dark .page { color: #8f8174; }
+  </style>
+</head>
+<body>
+<main class="deck">
+  <section class="slide">
+    <div class="kicker">ASify Demo Site</div>
+    <h1>我經營 ASify 時，最早遇到的不是 AI 問題</h1>
+    <div class="subtitle">而是信任怎麼被累積、整理和放大。</div>
+    <div class="wide-card"><p>ASify 是一個瑜伽服品牌，靠體驗、口碑、老師推薦與客人回購慢慢長大。</p></div>
+    <div class="page">01</div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Pain Point</div>
+    <h1>很多有價值的東西，都散在不同地方</h1>
+    <div class="subtitle">客服、LINE、好評、社群，還有我的腦袋裡。</div>
+    <div class="cards">
+      <div class="card"><h2>問題</h2><p>客人常問的事，沒有變成知識庫。</p></div>
+      <div class="card"><h2>好評</h2><p>客人的稱讚，沒有變成可重複使用的信任素材。</p></div>
+      <div class="card"><h2>合作</h2><p>老師 / KOL 合作，沒有被整理成可追蹤流程。</p></div>
+    </div>
+    <div class="page">02</div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Workflow</div>
+    <h1>所以我把 ASify 做成自己的 AI 商業流程實驗室</h1>
+    <div class="subtitle">不是先買工具，而是先把每天發生的事整理成流程。</div>
+    <div class="cards five">
+      <div class="card"><h2>知識庫</h2><p>客服問題</p></div>
+      <div class="card"><h2>信任素材</h2><p>好評整理</p></div>
+      <div class="card"><h2>推薦流程</h2><p>老師 / KOL 合作</p></div>
+      <div class="card"><h2>內容產出</h2><p>社群穩定發文</p></div>
+      <div class="card"><h2>營運訊號</h2><p>Dashboard</p></div>
+    </div>
+    <div class="page">03</div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Why Beauty</div>
+    <h1>ASify 跟美業很像</h1>
+    <div class="subtitle">都不是只賣產品或服務，而是在經營信任。</div>
+    <div class="cards">
+      <div class="card"><h2>體驗</h2><p>客人要感覺：你懂我。</p></div>
+      <div class="card"><h2>口碑</h2><p>好評、介紹、熟客推薦會影響成交。</p></div>
+      <div class="card"><h2>回訪</h2><p>信任如果沒有下一步，就容易流失。</p></div>
+    </div>
+    <div class="page">04</div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">AI Role</div>
+    <h1>AI 真正有用的地方</h1>
+    <div class="subtitle">是把信任變成可以被管理的流程。</div>
+    <div class="cards">
+      <div class="card"><h2>記得</h2><p>客人問過什麼、喜歡什麼、多久沒回來。</p></div>
+      <div class="card"><h2>整理</h2><p>好評、常見問題、成交話術、教育素材。</p></div>
+      <div class="card"><h2>提醒</h2><p>回訪、加購、轉介紹、下一次服務。</p></div>
+    </div>
+    <div class="page">05</div>
+  </section>
+
+  <section class="slide dark">
+    <div class="kicker">Alice</div>
+    <h1>我做的不是教你多用幾個 AI 工具</h1>
+    <div class="subtitle">我是 AI 商業流程架構師。</div>
+    <div class="wide-card"><p>AI 幫你把客人的信任，變成可持續經營的收入。</p></div>
+    <div class="page">06</div>
+  </section>
+</main>
+</body>
+</html>

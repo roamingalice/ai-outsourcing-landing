@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Business Process Implementation — Alice × Frank</title>
+<meta name="description" content="Alice × Frank help companies turn AI from scattered tools into operating workflows: customer service, content, data, permissions, human review, dashboards, and implementation.">
+<link rel="canonical" href="https://roamingalice.github.io/ai-outsourcing-landing/services/en/">
+<link rel="alternate" hreflang="zh-Hant" href="https://roamingalice.github.io/ai-outsourcing-landing/services/">
+<link rel="alternate" hreflang="en" href="https://roamingalice.github.io/ai-outsourcing-landing/services/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, h3, p, ul { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: inherit; text-decoration: none; }
+
+  :root {
+    --bg: #f7f3ec;
+    --bg-alt: #ffffff;
+    --ink: #1a2028;
+    --ink-muted: #5a6370;
+    --ink-light: #9aa0a9;
+    --accent: #0a5f54;
+    --accent-soft: #e4ede9;
+    --warm: #b96a2f;
+    --warm-soft: #f3e3d3;
+    --deep: #2d5238;
+    --deep-soft: #e2ebe2;
+    --line: #e6dfd1;
+    --line-strong: #d8cfbc;
+    --shadow-md: 0 10px 30px -12px rgba(26, 32, 40, 0.12);
+    --shadow-lg: 0 24px 48px -20px rgba(26, 32, 40, 0.18);
+  }
+
+  html {
+    font-family: "Inter", "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .nav {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav__brand {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nav__brand span { color: var(--ink-light); font-weight: 400; margin: 0 8px; }
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .nav__lang {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    padding: 8px 10px;
+  }
+  .nav__lang:hover { color: var(--accent); }
+  .nav__cta {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: 999px;
+  }
+  .nav__cta:hover { background: var(--accent); color: #fff; }
+
+  .hero {
+    padding: 96px 0 88px;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 28px;
+    padding: 6px 14px;
+    background: var(--accent-soft);
+    border-radius: 999px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .hero__title {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    max-width: 13ch;
+    margin-bottom: 28px;
+  }
+  .hero__title em {
+    font-style: normal;
+    color: var(--accent);
+    position: relative;
+  }
+  .hero__title em::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 10px;
+    background: var(--warm-soft);
+    z-index: -1;
+  }
+  .hero__sub {
+    font-size: 19px;
+    color: var(--ink-muted);
+    max-width: 63ch;
+    margin-bottom: 44px;
+  }
+  .hero__people {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .person {
+    max-width: 440px;
+  }
+  .person__name {
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .person__role {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .person__credit {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 4px;
+  }
+
+  .section {
+    padding: 92px 0;
+  }
+  .section--alt {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .section__title {
+    font-size: clamp(30px, 3.6vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    max-width: 24ch;
+    margin-bottom: 18px;
+  }
+  .section__sub {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 64ch;
+    margin-bottom: 48px;
+  }
+
+  .dark-panel {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 48px;
+    border-radius: 2px;
+  }
+  .dark-panel__label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-soft);
+    margin-bottom: 14px;
+  }
+  .dark-panel__title {
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .dark-panel__text {
+    color: color-mix(in oklch, var(--bg) 84%, transparent);
+    max-width: 76ch;
+    font-size: 18px;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .proof {
+    border: 1px solid color-mix(in oklch, var(--bg) 20%, transparent);
+    padding: 20px;
+    min-height: 150px;
+  }
+  .proof__num {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--warm-soft);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .proof__copy {
+    color: color-mix(in oklch, var(--bg) 84%, transparent);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .card {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .card__label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .card__title {
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+  }
+  .card__text {
+    font-size: 15px;
+    color: var(--ink-muted);
+  }
+  .metric {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .metric strong {
+    font-size: 24px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .tier {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  .tier__step {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    margin-bottom: 18px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .tier:nth-child(2) .tier__step { background: var(--warm-soft); color: var(--warm); }
+  .tier:nth-child(3) .tier__step { background: var(--deep-soft); color: var(--deep); }
+  .tier__list {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+    margin-bottom: 24px;
+  }
+  .tier__list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14.5px;
+  }
+  .tier__price {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .price {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .price small {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .team-card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--line);
+  }
+  .team-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .team-role {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .team-bio {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .team-bio + .team-bio { margin-top: 10px; }
+
+  .entry {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 20px;
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .entry__title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .entry__sub {
+    color: color-mix(in oklch, var(--bg) 78%, transparent);
+    max-width: 54ch;
+  }
+  .entry__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-alt);
+    color: var(--ink);
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .foot {
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg-alt);
+  }
+  .foot__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+  .foot strong { color: var(--ink); }
+
+  @media (max-width: 980px) {
+    .grid, .grid--4, .proof-grid, .split { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .container { padding: 0 24px; }
+    .hero { padding: 72px 0; }
+    .section { padding: 72px 0; }
+    .dark-panel { padding: 32px 24px; }
+    .entry { grid-template-columns: 1fr; padding: 28px; }
+    .team-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body id="top">
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="nav__brand">Alice <span>×</span> Frank</a>
+    <div class="nav__links">
+      <a href="../" class="nav__lang">中文</a>
+      <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="nav__cta">Start 3-minute check</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">AI Business Process Implementation</div>
+    <h1 class="hero__title">Scale output <em>2–3×</em> without adding headcount.</h1>
+    <p class="hero__sub">
+      We do not simply install AI tools. We redesign how work moves through the business: customer service, marketing, orders, data, permissions, human review, and validation become one operating system that can run, report back, and keep improving.
+    </p>
+    <div class="hero__people">
+      <div class="person">
+        <div class="person__name">Alice Tsai</div>
+        <div class="person__role">AI Business Process Architect · CEO, Cheng Yu Co., Ltd.</div>
+        <div class="person__credit">Founder of ASify · 12th President of BNI Huarong · NTU / NYU</div>
+      </div>
+      <div class="person">
+        <div class="person__name">Frank Yang</div>
+        <div class="person__role">Technical Implementation · System Architecture</div>
+        <div class="person__credit">Core developer of Open Claw · Former COO of CK101 · Former Taiwan GM of iMobile · Big Face project lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="eyebrow">From tools to workflows</div>
+    <h2 class="section__title">Most companies do not need more AI demos. They need operating architecture.</h2>
+    <p class="section__sub">
+      The hard part is not asking AI to do one task. The hard part is deciding where AI belongs in the flow, what data it can access, who reviews the output, and how the business learns from the result.
+    </p>
+    <div class="dark-panel">
+      <div class="dark-panel__label">Market signal</div>
+      <h3 class="dark-panel__title">The next gap is not who uses AI better. It is who can put AI inside daily operations.</h3>
+      <p class="dark-panel__text">
+        Alice translates business processes into AI-ready workflows. Frank turns those workflows into deployable, maintainable systems. Together, we close the gap between business intent and technical execution.
+      </p>
+      <div class="proof-grid">
+        <div class="proof">
+          <div class="proof__num">85.8%</div>
+          <div class="proof__copy">of companies plan to adopt or expand AI in 2026. The question is now implementation.</div>
+        </div>
+        <div class="proof">
+          <div class="proof__num">6.6%</div>
+          <div class="proof__copy">have fully integrated AI into routine operations. Tool usage is not the same as AI transformation.</div>
+        </div>
+        <div class="proof">
+          <div class="proof__num">61.8%</div>
+          <div class="proof__copy">have AI usage outside formal governance. Efficiency without control becomes risk.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Capability map</div>
+    <h2 class="section__title">Not just bots. We build AI business process architecture.</h2>
+    <p class="section__sub">
+      Each industry has different pain points, but the same foundations matter: data, workflow, AI, permissions, human review, and validation.
+    </p>
+    <div class="grid grid--4">
+      <div class="card"><h3 class="card__title">Customer service</h3><p class="card__text">FAQ, returns, follow-up, booking, complaints, and human review gates.</p></div>
+      <div class="card"><h3 class="card__title">Content systems</h3><p class="card__text">Turn customer questions, reviews, cases, and brand knowledge into publishable content.</p></div>
+      <div class="card"><h3 class="card__title">KOL / referral flows</h3><p class="card__text">Lists, referral codes, collaboration status, revenue share, and performance tracking.</p></div>
+      <div class="card"><h3 class="card__title">Smart recommendations</h3><p class="card__text">Match SKUs, customer segments, channels, and sales styles to support conversion.</p></div>
+      <div class="card"><h3 class="card__title">Website renewal</h3><p class="card__text">Organize assets and rebuild legacy brands into modern conversion entry points.</p></div>
+      <div class="card"><h3 class="card__title">AI SEO / GEO</h3><p class="card__text">Help brands become visible in AI search and generative answer engines.</p></div>
+      <div class="card"><h3 class="card__title">Dashboards</h3><p class="card__text">Turn scattered data into signals owners, managers, and investors can understand.</p></div>
+      <div class="card"><h3 class="card__title">Security and validation</h3><p class="card__text">Design data permissions, logs, human checkpoints, and output validation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="eyebrow">Field cases</div>
+    <h2 class="section__title">From ecommerce to manufacturing. From automation to revenue growth.</h2>
+    <p class="section__sub">
+      These are real client projects, described by industry type to protect confidentiality. We also run similar systems inside ASify every day.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <div class="card__label">Revenue growth</div>
+        <h3 class="card__title">Import-export trade smart SKU recommendations</h3>
+        <p class="card__text">AI matched sales style, partner positioning, and customer profiles to recommend SKU combinations. Assistants moved from manual filtering into front-line sales support.</p>
+        <div class="metric"><strong>2×</strong><span>company revenue growth</span></div>
+      </div>
+      <div class="card">
+        <div class="card__label">Legacy brand renewal</div>
+        <h3 class="card__title">Industrial manufacturer website rebuild</h3>
+        <p class="card__text">AI cleaned product imagery, organized assets, and supported a modern English export site that communicated technical transparency and certifications.</p>
+        <div class="metric"><strong>50+ yrs</strong><span>legacy company digital renewal</span></div>
+      </div>
+      <div class="card">
+        <div class="card__label">AI search visibility</div>
+        <h3 class="card__title">U.S. brand AI recommendation presence</h3>
+        <p class="card__text">We produced high-quality content at scale and optimized for how AI answer engines reason, helping the brand enter recommendation contexts.</p>
+        <div class="metric"><strong>AI answers</strong><span>entered generative recommendations</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Why us</div>
+    <h2 class="section__title">There are many AI vendors. Few can do these three things together.</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card__label">01</div>
+        <h3 class="card__title">Business translation and technical execution in one team.</h3>
+        <p class="card__text">Alice translates the business process; Frank builds it. You do not have to translate between a consultant and an engineer.</p>
+      </div>
+      <div class="card">
+        <div class="card__label">02</div>
+        <h3 class="card__title">We are our own first client.</h3>
+        <p class="card__text">ASify runs real AI workflows every day: customer service, returns, content, KOL collaboration, factory monitoring, and campaign scheduling.</p>
+      </div>
+      <div class="card">
+        <div class="card__label">03</div>
+        <h3 class="card__title">Focused on implementation, not hype.</h3>
+        <p class="card__text">We do not sell generic AI training or abstract strategy. We put AI into company workflows and make sure it can run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="tiers">
+  <div class="container">
+    <div class="eyebrow">Three service stages</div>
+    <h2 class="section__title">We match the stage of the problem. We do not force a package onto you.</h2>
+    <p class="section__sub">
+      Early direction-setting and rough questions do not count against your hours. Professional time begins when we start turning the idea into documents, specs, workflows, and meetings.
+    </p>
+    <div class="grid">
+      <div class="card tier">
+        <span class="tier__step">Stage 1 · Consult</span>
+        <h3 class="card__title">AI Process Consult Pack</h3>
+        <p class="card__text">Ask, discuss, and test direction first without feeling that every sentence is being billed.</p>
+        <ul class="tier__list">
+          <li>Rough ideas and early questions can be discussed first without using hours</li>
+          <li>Decide whether a request is actually suitable for AI</li>
+          <li>Map service, content, reporting, follow-up, and sales bottlenecks</li>
+          <li>Hours start when we write requirements, specs, process maps, or meeting notes</li>
+        </ul>
+        <div class="tier__price"><div class="price">NT$50,000 <small>/ 10 hours</small></div></div>
+      </div>
+      <div class="card tier">
+        <span class="tier__step">Stage 2 · Build</span>
+        <h3 class="card__title">Build Project</h3>
+        <p class="card__text">Turn the specification into a working automation system and test it before launch.</p>
+        <ul class="tier__list">
+          <li>Custom AI automation system for one defined workflow</li>
+          <li>Deployment and integration with existing tools</li>
+          <li>Operating documentation and team handoff</li>
+          <li>One month of post-launch optimization included</li>
+        </ul>
+        <div class="tier__price"><div class="price">NT$150,000 <small>and up · project-based</small></div></div>
+      </div>
+      <div class="card tier">
+        <span class="tier__step">Stage 3 · Refine</span>
+        <h3 class="card__title">Refine</h3>
+        <p class="card__text">After launch, keep the system improving instead of drifting back into manual work.</p>
+        <ul class="tier__list">
+          <li>Review and optimization recommendations for live systems</li>
+          <li>Monitoring and light adjustments scoped by Frank</li>
+          <li>New request evaluation and next-stage planning</li>
+          <li>Regular performance meetings and operating signal reviews</li>
+        </ul>
+        <div class="tier__price"><div class="price">Quoted separately <small>no default monthly fee</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="entry">
+      <div>
+        <div class="eyebrow">Entry point</div>
+        <div class="entry__title">Free 3-minute fit check</div>
+        <p class="entry__sub">We use a short check to see whether we can help, or whether another partner would be a better fit.</p>
+      </div>
+      <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="entry__btn">Start check</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="about">
+  <div class="container">
+    <div class="eyebrow">About us</div>
+    <h2 class="section__title">A two-person team: one translates the business, one builds the system.</h2>
+    <p class="section__sub">
+      Clients work with one accountable team. Behind the scenes are two complementary operators, so you do not have to translate between business and engineering.
+    </p>
+    <div class="split">
+      <div class="card team-card">
+        <img src="https://i.ibb.co/4ZQ8HqBz/Alice.jpg" alt="Alice Tsai" class="team-photo" loading="lazy">
+        <div>
+          <div class="team-name">Alice Tsai</div>
+          <div class="team-role">AI Business Process Architect · CEO, Cheng Yu Co., Ltd.</div>
+          <p class="team-bio">Founder of ASify, a yoga apparel brand, and 12th President of BNI Huarong.</p>
+          <p class="team-bio">ASify runs with 9 AI agents across content production, customer service, returns, KOL collaboration, factory group monitoring, and campaign scheduling.</p>
+        </div>
+      </div>
+      <div class="card team-card">
+        <img src="../frank.jpg" alt="Frank Yang" class="team-photo" loading="lazy">
+        <div>
+          <div class="team-name">Frank Yang</div>
+          <div class="team-role">Technical Implementation · System Architecture</div>
+          <p class="team-bio">Core developer of Open Claw. Former COO of CK101 and former Taiwan General Manager of iMobile.</p>
+          <p class="team-bio">Frank has shipped AI projects across trade, manufacturing, ecommerce, LINE bots, LIFF campaigns, and AI search visibility. Give him a clear spec and he builds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="container foot__inner">
+    <div><strong>Alice × Frank</strong></div>
+    <div>Cheng Yu Co., Ltd. · AI Business Process Implementation · 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

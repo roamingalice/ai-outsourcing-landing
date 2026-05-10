@@ -76,6 +76,21 @@
     font-weight: 400;
     margin: 0 8px;
   }
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .nav__lang {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    padding: 8px 10px;
+    transition: color 0.2s;
+  }
+  .nav__lang:hover { color: var(--accent); }
   .nav__cta {
     font-size: 13px;
     font-weight: 600;
@@ -1025,7 +1040,10 @@
 <nav class="nav">
   <div class="container nav__inner">
     <a href="#top" class="nav__brand">Alice <span>×</span> Frank</a>
-    <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="nav__cta">開始 3 分鐘診斷</a>
+    <div class="nav__links">
+      <a href="en/" class="nav__lang">English</a>
+      <a href="https://ai-consult-quiz.vercel.app/" target="_blank" rel="noopener" class="nav__cta">開始 3 分鐘診斷</a>
+    </div>
   </div>
 </nav>
 
